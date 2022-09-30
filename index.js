@@ -1,15 +1,19 @@
 const express = require('express') 
 
+require('dotenv').config()
+
+const path = require('path')
+
 const index = express()
 
-const port = 6969
+const port = process.env.PORT
 
 index.set('views', './views')
 
 index.set('view engine', 'ejs')
 
 index.get('/', (request, response) => {
-    response.render('index')
+    response.sendFile(path.join(__dirname + '/public/index.html'));
 })
 
 index.listen(port, () => {
