@@ -13,7 +13,7 @@ index.set('views', './views')
 index.set('view engine', 'ejs')
 
 index.get('/', (request, response) => {
-    response.sendFile(path.join(__dirname + '/public/index.html'));
+    response.render('index')
 })
 
 index.listen(port, () => {
